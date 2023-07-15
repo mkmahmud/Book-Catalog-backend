@@ -3,6 +3,7 @@ const app: Application = express();
 import cors from "cors";
 import { StatusCodes } from "http-status-codes";
 import cookieParser from "cookie-parser";
+import routes from "./app/routes";
 
 // import ApiError from './Errors/ApiErrors'
 // Cors
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 // app.use('/api/v1/users/', UserRoutes)
 // app.use('/api/v1/academic-semesters/', academicSemesterRoutes)
 
-// app.use('/api/v1', routes)
+app.use("/api/v1", routes);
 
 // testing
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
