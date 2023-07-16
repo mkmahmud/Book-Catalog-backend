@@ -8,6 +8,7 @@ const app = (0, express_1.default)();
 const cors_1 = __importDefault(require("cors"));
 const http_status_codes_1 = require("http-status-codes");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const routes_1 = __importDefault(require("./app/routes"));
 // import ApiError from './Errors/ApiErrors'
 // Cors
 app.use((0, cors_1.default)());
@@ -18,7 +19,7 @@ app.use(express_1.default.urlencoded({ extended: true }));
 // Application ROutes
 // app.use('/api/v1/users/', UserRoutes)
 // app.use('/api/v1/academic-semesters/', academicSemesterRoutes)
-// app.use('/api/v1', routes)
+app.use("/api/v1", routes_1.default);
 // testing
 // app.get('/', async (req: Request, res: Response, next: NextFunction) => {
 //   // res.send('Server is runing')

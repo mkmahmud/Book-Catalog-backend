@@ -1,50 +1,17 @@
 "use strict";
-// import express from 'express'
-// import { UserRoutes } from '../Modules/users/user.route'
-// import { academicSemesterRoutes } from '../Modules/academicSemester/academicSemester.route'
-// import { academicFacultyRoutes } from '../Modules/academicFaculty/academicFaculty.route'
-// import { academicDepartmentRoutes } from '../Modules/academicDepartment/academicDepartment.route'
-// import { StudentRoutes } from '../Modules/student/student.route'
-// import { FacultyRoutes } from '../Modules/faculty/faculty.route'
-// import { AdminRoutes } from '../Modules/admin/admin.route'
-// import { AuthRoutes } from '../Modules/auth/auth.route'
-// const routes = express.Router()
-// // Routes
-// const Routers = [
-//   {
-//     path: '/users',
-//     route: UserRoutes,
-//   },
-//   {
-//     path: '/academic-semesters',
-//     route: academicSemesterRoutes,
-//   },
-//   {
-//     path: '/academic-faculty',
-//     route: academicFacultyRoutes,
-//   },
-//   {
-//     path: '/academic-department',
-//     route: academicDepartmentRoutes,
-//   },
-//   {
-//     path: '/students',
-//     route: StudentRoutes,
-//   },
-//   {
-//     path: '/faculty',
-//     route: FacultyRoutes,
-//   },
-//   {
-//     path: '/admin',
-//     route: AdminRoutes,
-//   },
-//   {
-//     path:'/auth',
-//     route: AuthRoutes
-//   }
-// ]
-// Routers.forEach(route => routes.use(route.path, route.route))
-// // routes.use('users/', UserRoutes)
-// // routes.use('academic-semesters/', academicSemesterRoutes)
-// export default routes
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const book_route_1 = require("../modules/book/book.route");
+const routes = express_1.default.Router();
+// Routes
+const Routers = [
+    {
+        path: "/book",
+        route: book_route_1.BookRoutes,
+    },
+];
+Routers.forEach((route) => routes.use(route.path, route.route));
+exports.default = routes;
