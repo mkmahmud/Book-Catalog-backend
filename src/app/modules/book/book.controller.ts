@@ -3,7 +3,7 @@ import sendResponse from "../../../shared/sendResponse";
 import { BookService } from "./book.service";
 import pick from "../../../shared/pick";
 import { filterAbleFilds } from "./book.constant";
-import { IBookFillters } from "./book.interface";
+import { IBook, IBookFillters } from "./book.interface";
 
 const createBook = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -42,7 +42,28 @@ const getAllBooks = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+const getSingelBooks = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const id = req.params.id;
+    const result = await BookService.getSingelBook(id);
+
+    sendResponse<IBook>(res, {
+      statusCode: 200,
+      success: true,
+      message: "Academic Faculty created Successfully",
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const BookController = {
   createBook,
   getAllBooks,
+  getSingelBooks,
 };
