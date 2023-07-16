@@ -48,6 +48,10 @@ const BookSchema = new Schema<IBook>(
     reviews: {
       type: [Object],
     },
+    author: {
+      type: String,
+      required: true,
+    },
   },
   {
     timestamps: true,

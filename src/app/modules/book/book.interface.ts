@@ -16,6 +16,7 @@ export interface IBook {
   genre: string;
   totalShare?: number;
   reviews?: object[];
+  author: string;
 }
 
 export type IBookFillters = { searchTerm: string };

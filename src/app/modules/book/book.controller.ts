@@ -3,7 +3,6 @@ import sendResponse from "../../../shared/sendResponse";
 import { BookService } from "./book.service";
 import pick from "../../../shared/pick";
 import { filterAbleFilds } from "./book.constant";
-import QueryString from "qs";
 import { IBookFillters } from "./book.interface";
 
 const createBook = async (req: Request, res: Response, next: NextFunction) => {
@@ -27,7 +26,7 @@ const getAllBooks = async (req: Request, res: Response, next: NextFunction) => {
       searchTerm: req.query.searchTerm as string,
       ...pick(req.query, filterAbleFilds),
     };
-    const paginationFields = ["page", "genre", "firstPublish", "totalShare"];
+    const paginationFields = ["page", "limit", "sortBy", "sortOrder"];
 
     const paginationOptions = pick(req.query, paginationFields);
 

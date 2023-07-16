@@ -52,12 +52,12 @@ const getAllBooks = async (
     });
   }
 
-  const { page, limit, skip, sortBy, sortOrder } =
+  const { page, limit, skip, firstPublish, sortOrder } =
     paginationHelpers.calclutePagination(paginationOptions);
 
   const sortConditions: { [key: string]: SortOrder } = {};
-  if (sortBy && sortOrder) {
-    sortConditions[sortBy] = sortOrder;
+  if (firstPublish && sortOrder) {
+    sortConditions[firstPublish] = sortOrder;
   }
 
   const whereConditions =
