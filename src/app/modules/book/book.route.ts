@@ -9,6 +9,9 @@ router.post("/create-book", BookController.createBook);
 // Get Singel Book
 router.get("/:id", BookController.getSingelBooks);
 
+// Update Singel Book
+router.patch("/:id", BookController.updateSingelBook);
+
 // Get Book
 router.get("/", BookController.getAllBooks);
 

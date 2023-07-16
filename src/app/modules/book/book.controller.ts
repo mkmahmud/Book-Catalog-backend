@@ -54,7 +54,28 @@ const getSingelBooks = async (
     sendResponse<IBook>(res, {
       statusCode: 200,
       success: true,
-      message: "Academic Faculty created Successfully",
+      message: "Book Data Retrived Successfully",
+      data: result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const updateSingelBook = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const id = req.params.id;
+    const data = req.body;
+    const result = await BookService.updateBook(id, data);
+
+    sendResponse<IBook>(res, {
+      statusCode: 200,
+      success: true,
+      message: "Book Updated Successfully",
       data: result,
     });
   } catch (error) {
@@ -66,4 +87,5 @@ export const BookController = {
   createBook,
   getAllBooks,
   getSingelBooks,
+  updateSingelBook,
 };
